@@ -1,12 +1,16 @@
 package main
 
+import "github.com/zebresel-com/mongodm"
+
 //User represents anyone registered on this blog engine
 type User struct {
-	ID       int64  `json:"id,omitempty"`
-	Username string `json:"username,omitempty"`
-	Email    string `json:"email,omitempty"`
-	Name     string `json:"name,omitempty"`
-	Bio      string `json:"bio,omitempty"`
+	mongodm.DocumentBase `json:",inline" bson:",inline"`
+
+	ID       int64  `json:"id,omitempty" bson:"id"`
+	Username string `json:"username,omitempty" bson:"username"`
+	Email    string `json:"email,omitempty" bson:"email,omitempty"`
+	Name     string `json:"name,omitempty" bson:"name,omitempty"`
+	Bio      string `json:"bio,omitempty" bson:"bio,omitempty"`
 }
 
 //Post represents a blog post writen by some user
