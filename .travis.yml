@@ -1,0 +1,17 @@
+language: go
+
+go:
+  - 1.8.x
+  - 1.9.x
+  - tip
+
+go_import_path: github.com/felipecaputo/go-graphql-example
+
+before_install:
+  - go get -t
+
+services:
+  - mongodb
+
+script:
+  - go build
